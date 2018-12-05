@@ -5,8 +5,8 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 import * as path from 'path';
-import * as vscode from 'vscode';
 import { ConfigurationTarget } from 'vscode';
+import * as vscode from 'vscode';
 import { channelService } from './channels';
 import {
   CompositeParametersGatherer,
@@ -74,6 +74,7 @@ import * as decorators from './decorators';
 import { nls } from './messages';
 import { isDemoMode } from './modes/demo-mode';
 import { notificationService, ProgressNotification } from './notifications';
+import { sfdxCoreSettings } from './settings';
 import { taskViewService } from './statuses';
 import { telemetryService } from './telemetry';
 
@@ -487,6 +488,7 @@ export async function activate(context: vscode.ExtensionContext) {
     notificationService,
     taskViewService,
     telemetryService,
+    sfdxCoreSettings,
     getUserId
   };
 

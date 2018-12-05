@@ -91,9 +91,7 @@ export class ForceApexTestRunCodeActionExecutor extends SfdxCommandletExecutor<{
 }
 
 async function forceApexTestRunCodeAction(test: string) {
-  const getCodeCoverage: boolean = sfdxCoreSettings
-    .getConfiguration()
-    .get('retrieve-test-code-coverage') as boolean;
+  const getCodeCoverage: boolean = sfdxCoreSettings.getApexTestCodeCoverageEnabled();
   const commandlet = new SfdxCommandlet(
     new SfdxWorkspaceChecker(),
     new EmptyParametersGatherer(),

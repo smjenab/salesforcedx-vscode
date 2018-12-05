@@ -25,6 +25,7 @@ const EmptyParametersGatherer = sfdxCoreExports.EmptyParametersGatherer;
 const SfdxCommandlet = sfdxCoreExports.SfdxCommandlet;
 const SfdxWorkspaceChecker = sfdxCoreExports.SfdxWorkspaceChecker;
 const channelService = sfdxCoreExports.channelService;
+const coreSettings = sfdxCoreExports.sfdxCoreSettings;
 export class ApexTestRunner {
   private testOutline: ApexTestOutlineProvider;
   private eventsEmitter = new events.EventEmitter();
@@ -103,7 +104,7 @@ export class ApexTestRunner {
     const tmpFolder = this.getTempFolder();
     const builder = new ReadableApexTestRunExecutor(
       [test.name],
-      false,
+      coreSettings.getApexTestCodeCoverageEnabled(),
       tmpFolder,
       this.testOutline
     );
@@ -120,7 +121,7 @@ export class ApexTestRunner {
     const tmpFolder = this.getTempFolder();
     const builder = new ReadableApexTestRunExecutor(
       Array.from(this.testOutline.testStrings.values()),
-      false,
+      coreSettings.getApexTestCodeCoverageEnabled(),
       tmpFolder,
       this.testOutline
     );

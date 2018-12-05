@@ -35,6 +35,10 @@ export class SfdxCoreSettings {
     return this.getConfigValue<boolean>(SHOW_CLI_SUCCESS_INFO_MSG, true);
   }
 
+  public getApexTestCodeCoverageEnabled(): boolean {
+    return this.getConfigValue<boolean>('retrieve-test-code-coverage', false);
+  }
+
   // checks for Microsoft's telemetry setting as well as Salesforce's telemetry setting.
   public getTelemetryEnabled(): boolean {
     return (

@@ -132,9 +132,7 @@ export class ForceApexTestRunExecutor extends SfdxCommandletExecutor<
   ApexTestQuickPickItem
 > {
   public build(data: ApexTestQuickPickItem): Command {
-    const getCodeCoverage: boolean = sfdxCoreSettings
-      .getConfiguration()
-      .get('retrieve-test-code-coverage') as boolean;
+    const getCodeCoverage: boolean = sfdxCoreSettings.getApexTestCodeCoverageEnabled();
     const factory: ForceApexTestRunCommandFactory = new ForceApexTestRunCommandFactory(
       data,
       getCodeCoverage
